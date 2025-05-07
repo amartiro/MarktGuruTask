@@ -29,19 +29,11 @@ struct ProductDetailView: View {
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .padding()
-                        
-                        Button(action: {
+
+                        FavoriteButton(action: {
                             favoritesManager.toggleFavorite(id: product.id)
-                        }) {
-                            let isFavorite = favoritesManager.isFavorite(id: product.id)
-                            let title = isFavorite ? KeyConstants.Title.unfavorite : KeyConstants.Title.favorite
-                            let icon = isFavorite ? KeyConstants.Icon.favorite : KeyConstants.Icon.unfavorite
-                            Label(title, systemImage: icon)
-                                .padding()
-                                .background(Color.blue.opacity(0.2))
-                                .cornerRadius(Constants.cornerRadius)
-                        }
-                        
+                        }, isFavorite: favoritesManager.isFavorite(id: product.id))
+
                         Spacer()
                     }
                 }
@@ -50,12 +42,8 @@ struct ProductDetailView: View {
             .edgesIgnoringSafeArea(.bottom)
         }
     }
-    
-    private enum Constants {
-        static let cornerRadius = 8.0
-    }
 }
 
 #Preview {
-    ProductDetailView(product: MockNetworkManager.getDummyProduct(), favoritesManager: FavoritesManager())
+    ProductDetailView(product: DummyProduct.dummy, favoritesManager: FavoritesManager())
 }

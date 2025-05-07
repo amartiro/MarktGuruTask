@@ -14,8 +14,12 @@ final class ProductTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        let networkManager = MockNetworkManager()
-        sut = MockNetworkManager.getDummyProduct()
+        sut = Product(id: "12",
+                      name: "Product 12",
+                      price: 54.23,
+                      description: "Description for product 12",
+                      imageURL: "https://i.imgur.com/QkIa5tT.jpeg"
+                    )
     }
     
     override func tearDown() {
@@ -23,14 +27,9 @@ final class ProductTests: XCTestCase {
         super.tearDown()
     }
     
-    func testProductInitializer() {
+    func test_ProductInitializer_shouldAssignCorrectValues() {
         // Given
-        sut = Product(id: "12",
-                      name: "Product 12",
-                      price: 54.23,
-                      description: "Description for product 12",
-                      imageURL: "https://i.imgur.com/QkIa5tT.jpeg"
-                    )
+
         // Then
         XCTAssertEqual(sut.id, "12")
         XCTAssertEqual(sut.name, "Product 12")

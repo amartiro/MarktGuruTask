@@ -22,7 +22,9 @@ struct ProductListCellView: View {
                 Text("$\(product.price, specifier: Constants.priceSpecifier)")
                     .foregroundColor(.secondary)
             }
+
             Spacer()
+
             Image(systemName: isFavorite ? KeyConstants.Icon.favorite : KeyConstants.Icon.unfavorite)
                 .foregroundColor(.red)
         }
@@ -35,5 +37,5 @@ struct ProductListCellView: View {
 }
 
 #Preview {
-    ProductListCellView(product: MockNetworkManager.getDummyProduct(), isFavorite: true)
+    ProductListCellView(product: DummyProduct.dummy, isFavorite: true)
 }

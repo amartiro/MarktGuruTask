@@ -28,9 +28,11 @@ struct ProductListView<ViewModel: ProductListViewModeling>: View {
                 }
                 HStack {
                     Spacer()
+
                     Button(KeyConstants.Title.loadMore) {
                         viewModel.loadMoreProducts()
                     }
+
                     Spacer()
                 }
             }

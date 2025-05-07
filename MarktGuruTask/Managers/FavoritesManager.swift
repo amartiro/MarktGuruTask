@@ -11,9 +11,11 @@ import Foundation
 final class FavoritesManager {
     private var favoriteIds: Set<String> = []
     private let key = "favorite_products"
+    private let defaults: UserDefaults
 
-    init() {
-        favoriteIds = Set(UserDefaults.standard.stringArray(forKey: key) ?? [])
+    init(defaults: UserDefaults = .standard) {
+        self.defaults = defaults
+        favoriteIds = Set(defaults.stringArray(forKey: key) ?? [])
     }
 
     func toggleFavorite(id: String) {
@@ -22,7 +24,7 @@ final class FavoritesManager {
         } else {
             favoriteIds.insert(id)
         }
-        UserDefaults.standard.set(Array(favoriteIds), forKey: key)
+        defaults.set(Array(favoriteIds), forKey: key)
     }
 
     func isFavorite(id: String) -> Bool {
@@ -31,6 +33,6 @@ final class FavoritesManager {
     
     func cleanUp() {
         favoriteIds.removeAll()
-        UserDefaults.standard.set(Array(favoriteIds), forKey: key)
+        defaults.set(Array(favoriteIds), forKey: key)
     }
 }
