@@ -29,26 +29,21 @@ final class NetworkManager: NetworkManaging {
 
         let request = URLRequest(url: url)
        
+
+        let (data, response) = try await session.data(for: request)
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw NetworkError.requestFailed(-1)
+        }
+
+        guard (200...299).contains(httpResponse.statusCode) else {
+            throw NetworkError.requestFailed(httpResponse.statusCode)
+        }
+
         do {
-            let (data, response) = try await session.data(for: request)
-
-            guard let httpResponse = response as? HTTPURLResponse else {
-                throw NetworkError.requestFailed(-1)
-            }
-
-            guard (200...299).contains(httpResponse.statusCode) else {
-                throw NetworkError.requestFailed(httpResponse.statusCode)
-            }
-
-            do {
-                let decoded = try JSONDecoder().decode(T.self, from: data)
-                return decoded
-            } catch {
-                throw NetworkError.decodingError(error)
-            }
-
+            let decoded = try JSONDecoder().decode(T.self, from: data)
+            return decoded
         } catch {
-            throw NetworkError.unknown(error)
+            throw NetworkError.decodingError(error)
         }
     }
     

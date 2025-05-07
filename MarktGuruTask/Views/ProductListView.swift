@@ -36,6 +36,11 @@ struct ProductListView<ViewModel: ProductListViewModeling>: View {
                     Spacer()
                 }
             }
+            .alert(item: $viewModel.alertItem) { alertItem in
+                Alert(title: alertItem.title,
+                      message: alertItem.message,
+                      dismissButton: alertItem.dismissButton)
+            }
             .navigationTitle(KeyConstants.Title.products)
             .onAppear {
                 viewModel.onAppear()

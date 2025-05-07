@@ -21,6 +21,23 @@
 		CE7E43132DC8B38800AF71D5 /* MarktGuruTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarktGuruTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CE01F2382DCBF4680076B2DA /* Exceptions for "MarktGuruTaskTests" folder in "MarktGuruTask" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MockNetworkManager.swift,
+			);
+			target = CE7E43052DC8B38500AF71D5 /* MarktGuruTask */;
+		};
+		CE01F2392DCBF4680076B2DA /* Exceptions for "MarktGuruTaskTests" folder in "MarktGuruTaskTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MockNetworkManager.swift,
+			);
+			target = CE7E43122DC8B38800AF71D5 /* MarktGuruTaskTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CE7E43082DC8B38500AF71D5 /* MarktGuruTask */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -29,6 +46,10 @@
 		};
 		CE7E43162DC8B38800AF71D5 /* MarktGuruTaskTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CE01F2382DCBF4680076B2DA /* Exceptions for "MarktGuruTaskTests" folder in "MarktGuruTask" target */,
+				CE01F2392DCBF4680076B2DA /* Exceptions for "MarktGuruTaskTests" folder in "MarktGuruTaskTests" target */,
+			);
 			path = MarktGuruTaskTests;
 			sourceTree = "<group>";
 		};
@@ -338,6 +359,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,6 +388,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -41,7 +41,7 @@ final class ProductListViewModelTests: XCTestCase {
         sut.$products
             .dropFirst()
             .sink { products in
-                XCTAssert(products.count == 2, "sut.products.count")
+                XCTAssert(products.count == 5, "sut.products.count")
                 expectation.fulfill()
             }
             .store(in: &cancellables)

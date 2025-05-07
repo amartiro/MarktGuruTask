@@ -25,6 +25,11 @@ struct ProductDetailView: View {
                             .frame(maxWidth: CGFloat.infinity, maxHeight: proxy.size.width)
                             .padding()
                         
+                        Text("Price: $\(product.price, specifier: Constants.priceSpecifier)")
+                            .font(.title2)
+                            .foregroundColor(.primary)
+                            .padding()
+                        
                         Text(product.description)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
@@ -41,6 +46,10 @@ struct ProductDetailView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
+    }
+    
+    private enum Constants {
+        static let priceSpecifier = "%.2f"
     }
 }
 
